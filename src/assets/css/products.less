@@ -1,0 +1,96 @@
+@import 'common.less';
+// .sest-banner {
+//   background-image: url('../images/sest/banner-basic-sest.jpg');
+// }
+// .seimage-banner {
+//   background-image: url('../images/seimage/banner-basic-photo.jpg');
+// }
+// .semap-banner {
+//   background-image: url('../images/semap/banner-basic-map.jpg');
+// }
+// .sesuperscylla-banner {
+//   background-image: url('../images/superscylla/banner-basic-superscylla.jpg');
+// }
+.sest-container {
+  @media @pc {
+    .flex(column,inherit,center);
+  }
+  .sest-abstract {
+    width: 80%;
+    margin: 0 auto;
+    font-size: 12px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #333333;
+    line-height: 18px;
+    @media @pc {
+      font-size: 16px;
+      font-family: PingFangSC-Regular, PingFang SC;
+      font-weight: 400;
+      color: #333333;
+      line-height: 22px;
+    }
+  }
+  .sest-article-title {
+    font-size: 24px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 600;
+    color: #333333;
+    text-align: center;
+    line-height: 34px;
+    margin-bottom: 16px;
+    @media @pc {
+      font-size: 36px;
+      line-height: 50px;
+      text-align: center;
+      margin: 0 auto;
+      margin-bottom: 14px;
+    }
+  }
+  .sest-article-subtitle {
+    font-size: 20px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #333333;
+    line-height: 28px;
+    margin-bottom: 10px;
+  }
+  .sesuperscylla-point-wrap {
+    .point-abstract {
+      width: 100%;
+      @media @phone {
+        text-align: left !important;
+      }
+    }
+  }
+}
+@media @pc {
+  .pc-margin-160 {
+    margin: 160px auto;
+  }
+  .default-article {
+    .default-container {
+      .default-content-wrap {
+        width: 45%;
+      }
+      .default-img-wrap {
+        .flex(row,center,center);
+        width: 55%;
+        .default-img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.sest-another-img {
+  @media @phone {
+    padding-right: 0 !important;
+    img {
+      width: 120%;
+    }
+  }
+  @media pc {
+  }
+}

@@ -1,0 +1,10 @@
+require('@/assets/css/application.less');
+import header from '@/views/common/header.html';
+import footer from '@/views/common/footer.html';
+import sideTool from '@/views/common/sideTool.html';
+$('#header').append(header);
+$('#footer').append(footer);
+$('body').append(sideTool);
+import { LazyImage, LazyBgImage } from '@/utils';
+new LazyImage('.lazy-image');
+new LazyBgImage('.lazy-bgimage');

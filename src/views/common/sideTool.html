@@ -1,0 +1,75 @@
+<div class="side-tool-wrap">
+  <div id="side-tool-phone" class="module-wrap">
+    <div class="tool-modal-wrap">
+      <div class="tool-modal-container">
+        <span class="title">销售咨询</span>
+        <span class="phone">0512-6253 5785</span>
+      </div>
+    </div>
+  </div>
+  <div id="side-tool-email" class="module-wrap">
+    <div class="tool-modal-wrap">
+      <div class="tool-modal-container">
+        <span class="title">销售咨询</span>
+        <span class="email">sales@com.cn </span>
+        <span class="title">产品反馈</span>
+        <span class="email">support@com.cn </span>
+        <span class="city">苏州</span>
+        <span class="address"> 地址：苏州 </span>
+        <span class="postcode">邮编：215123</span>
+      </div>
+    </div>
+  </div>
+  <div id="side-tool-top" class="module-wrap"></div>
+</div>
+<script>
+  $(window).scroll(switchSideTool);
+  $(window).resize(switchSideTool);
+  // 侧边工具栏显示隐藏
+  function switchSideTool() {
+    const isPc = $(window).width() >= 768;
+    if (!isPc) {
+      $('.side-tool-wrap').hide();
+    } else {
+      if ($(window).scrollTop() >= $(window).height()) {
+        // 在banner外
+        $('.side-tool-wrap').fadeIn();
+      } else {
+        $('.side-tool-wrap').fadeOut();
+      }
+    }
+  }
+
+  const sideToolType = {
+    phone: 'side-tool-phone',
+    email: 'side-tool-email',
+    top: 'side-tool-top'
+  };
+  // 侧边工具栏功能
+  $('.module-wrap').hover(function (e) {
+    const id = e.currentTarget.id;
+    if (!id || id === sideToolType.top) return;
+    handleSideTool(id);
+  });
+  // 侧边工具栏功能
+  $('.module-wrap').click(function (e) {
+    const id = e.currentTarget.id;
+    if (id !== sideToolType.top) return;
+    handleSideTool(id);
+  });
+  function handleSideTool(type) {
+    switch (type) {
+      case sideToolType.phone:
+        $(`#${type}`).find('.tool-modal-wrap').toggle();
+        break;
+      case sideToolType.email:
+        $(`#${type}`).find('.tool-modal-wrap').toggle();
+        break;
+      case sideToolType.top:
+        $('html').animate({ scrollTop: '0px' }, 300);
+        break;
+      default:
+        break;
+    }
+  }
+</script>

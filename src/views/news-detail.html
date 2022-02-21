@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>**动态</title>
+    <link rel="stylesheet" href="./static/lib/bootstrap/bootstrap.min.css" />
+  </head>
+  <body>
+    <header id="header"></header>
+    <main class="main">
+      <article
+        class="container default-banner news-banner lazy-bgimage"
+                        data-phonesrc="../assets/images/loading.gif"
+
+        data-src="../assets/images/loading.gif"
+      >
+        <div class="row">
+          <div class="col-xs-10 col-xs-offset-1 col-sm-6 news-banner-describle">
+            <div>**动态</div>
+            <p>
+              <a href="./">首页</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href="news.html">**动态</a
+              >&nbsp;&nbsp;/&nbsp;&nbsp;<span id="cur-chapter"></span>
+            </p>
+          </div>
+        </div>
+      </article>
+      <article class="default-article news-detail-article">
+        <section class="container news-detail-container">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12" id="content">
+              <!-- 内容区域，js引入markdown文档进行渲染 -->
+              <img src="../assets/images/loading.gif" alt="" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 col-sm-12">
+              <div class="next-wrap">
+                <span>下一篇</span>
+                <div class="next-chapter-wrap">
+                  <span id="next-chapter"></span>
+                  <span class="arrow"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </article>
+    </main>
+    <footer id="footer"></footer>
+    <script src="./static/lib/jquery.min.js"></script>
+    <script src="./static/lib/marked.min.js"></script>
+    <!-- 动态配置新闻 -->
+    <script src="./static/config/index.js"></script>
+  </body>
+</html>

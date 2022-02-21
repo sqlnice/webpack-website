@@ -1,0 +1,250 @@
+@import 'common.less';
+.technique-banner {
+  position: relative;
+  // background-image: url('../images/technique/banner-technical-center-free.jpg');
+  height: 360px;
+  .technique-banner-describle {
+    position: absolute;
+    top: 50%;
+    font-size: 30px;
+    font-family: PingFangSC-Semibold, PingFang SC;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 50px;
+    @media @pc {
+      font-size: 36px;
+    }
+  }
+}
+.fixed-left-top {
+  position: fixed;
+  // left: 0;
+  top: 0;
+}
+.technique-container {
+  // 目录
+  .catalog-wrap {
+    @media @phone {
+      display: none;
+    }
+    float: left;
+    margin-left: 18%;
+    // ul
+    .catalog {
+      // background: #f5f5f7;
+      // width: 315px;
+      height: auto;
+      max-height: calc(100vh);
+      padding: 60px 0 41px;
+      .catalog-nav-li {
+        position: relative;
+        margin: 12px 0;
+      }
+      .catalog-nav-type {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: 600;
+        font-family: PingFangSC-Semibold, PingFang SC;
+        color: #333;
+        .catalog-nav-arrow {
+          position: relative;
+          width: 11px;
+          height: 6px;
+          transition: all 0.2s;
+          margin-right: 10px;
+          &::after,
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 1px;
+            height: 6px;
+            background-color: #333;
+          }
+          &::after {
+            right: 3px;
+            transform: rotate(45deg);
+          }
+          &::before {
+            left: 3px;
+            transform: rotate(-45deg);
+          }
+        }
+      }
+      .catalog-nav-li-active {
+        .catalog-nav-arrow {
+          transform: rotate(180deg);
+        }
+      }
+      .catalog-nav-group {
+        display: none;
+        margin: 10px 0 0;
+        li {
+          cursor: pointer;
+          font-size: 14px;
+          font-weight: 400;
+          color: #333;
+          font-family: PingFangSC-Regular, PingFang SC;
+          line-height: 36px;
+          &:hover {
+            color: @mainColor;
+          }
+        }
+      }
+    }
+  }
+  .content-wrap {
+    margin-left: 30%;
+    // padding: 0 51px;
+    background: #fff;
+    padding-bottom: 73px;
+    @media @phone {
+      margin-left: 0;
+      padding: 0 5%;
+    }
+    .wrap {
+      padding-top: 72px;
+      @media @pc {
+        max-width: 1000px;
+        width: 90%;
+        margin-left: 51px;
+      }
+      .main-title {
+        font-size: 20px;
+        font-family: PingFangSC-Semibold, PingFang SC;
+        font-weight: 600;
+        color: #333333;
+        line-height: 28px;
+        @media @pc {
+          font-size: 24px;
+          line-height: 33px;
+        }
+      }
+      .sub-title {
+        font-size: 14px;
+        font-family: PingFangSC-Medium, PingFang SC;
+        font-weight: 600;
+        color: #333333;
+        line-height: 20px;
+        margin-top: 34px;
+      }
+      ul {
+        display: inline-block;
+        li {
+          margin-top: 45px;
+
+          .download {
+            cursor: pointer;
+            font-size: 14px;
+            font-family: PingFangSC-Regular, PingFang SC;
+            font-weight: 400;
+            color: #333333;
+            line-height: 28px;
+            margin-top: 10px;
+            &:hover {
+              color: @mainColor;
+            }
+            span {
+              position: relative;
+              display: inline-block;
+              margin-left: 10px;
+              width: 10px;
+              height: 10px;
+              border-bottom: 1px solid #848a98;
+              &::before {
+                content: '';
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 1px;
+                height: 10px;
+                background-color: #848a98;
+              }
+              &::after {
+                content: '';
+                position: absolute;
+                left: 1px;
+                width: 8px;
+                height: 8px;
+                border: 1px solid #848a98;
+                border-left-color: transparent;
+                border-top-color: transparent;
+                transform: rotate(45deg);
+              }
+            }
+          }
+        }
+      }
+      .test-img {
+        margin: 15px 0;
+        max-width: 675px;
+      }
+      .test-title {
+        font-size: 14px;
+        font-family: PingFangSC-Medium, PingFang SC;
+        font-weight: 600;
+        color: #333333;
+        line-height: 24px;
+      }
+      .test-content {
+        font-size: 14px;
+        font-family: PingFangSC-Regular, PingFang SC;
+        font-weight: 500;
+        color: #333333;
+        line-height: 24px;
+      }
+      .remark {
+        font-size: 14px;
+        font-family: PingFangSC-Medium, PingFang SC;
+        font-weight: 500;
+        color: #999999;
+        line-height: 24px;
+      }
+      .more-btn {
+        background-color: @mainColor;
+        margin-left: 0;
+        color: #fff;
+        border: none;
+      }
+      // 常见问答
+      .question-item {
+        border-bottom: 1px solid rgb(192, 191, 191);
+        .question-q {
+          cursor: pointer;
+          font-size: 14px;
+          font-family: PingFangSC-Regular, PingFang SC;
+          font-weight: 400;
+          color: @mainColor;
+          padding: 10px 0;
+        }
+        .question-a {
+          display: none;
+          font-size: 14px;
+          font-family: PingFangSC-Regular, PingFang SC;
+          font-weight: 400;
+          color: #666666;
+          line-height: 24px;
+          margin-bottom: 20px;
+          p {
+            margin: 5px 0;
+          }
+          img {
+            max-width: 400px;
+          }
+          code {
+            color: #ff510d;
+            background-color: transparent;
+            @media @phone {
+              display: block;
+              max-width: 100%;
+              overflow-x: scroll;
+            }
+          }
+        }
+      }
+    }
+  }
+}

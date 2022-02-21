@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>动态</title>
+  <meta name="keywords" content="**,新闻,动态" />
+  <meta name="description" content="**动态" />
+  <link rel="stylesheet" href="./static/lib/bootstrap/bootstrap.min.css" />
+</head>
+
+<body>
+  <header id="header"></header>
+  <main class="main">
+    <article class="container default-banner news-banner lazy-bgimage" data-phonesrc="../assets/images/loading.gif" data-src="../assets/images/loading.gif">
+      <div class="row">
+        <div class="col-xs-10 col-xs-offset-1 col-sm-6 news-banner-describle">
+          <div>动态</div>
+          <p><a href="./">首页</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href="news.html">动态</a></p>
+        </div>
+      </div>
+    </article>
+    <article class="default-article about-article news-min-h">
+      <section class="container">
+        <div class="row">
+          <div class="news-container">
+            <div class="news-warp">
+            </div>
+            <div id="loadingStatus" style="display: none">loading...</div>
+          </div>
+          <div class="swiper-control">
+            <span id="news-pre" class="pre forbidden"></span>
+            <div class="page-num">
+              <span id="cur-page">1</span>
+              <span>/</span>
+              <span id="total-page">10</span>
+            </div>
+            <span id="news-next" class="next"></span>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+  <footer id="footer"></footer>
+  <script src="./static/lib/jquery.min.js"></script>
+  <script src="./static/config/index.js"></script>
+  <script src="./static/news/slider.js"></script>
+</body>
+
+</html>

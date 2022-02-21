@@ -1,0 +1,133 @@
+<form class="consult-form">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-item">
+        <label for="consult-phone" class="required">联系电话</label>
+        <input type="text" class="consult-phone" id="consult-phone" />
+      </div>
+      <div class="input-error phone-error">电话格式不正确</div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-item">
+        <label for="consult-email" class="required">联系邮箱</label>
+        <input type="email" class="consult-email" id="consult-email" />
+      </div>
+      <div class="input-error email-error">邮箱格式不正确</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-item">
+        <label for="consult-select">咨询方案</label>
+        <div class="option">
+          <select id="consult-select">
+            <option>卫星遥感</option>
+            <option>智慧高速</option>
+            <option>基础地信</option>
+            <option>智慧环保</option>
+            <option>车联网</option>
+            <option>智慧城市</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-item">
+        <label for="consult-des">问题描述</label>
+        <textarea rows="6" id="consult-des"></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <div class="default-blue-btn btn-disabled consult-submit-btn">提交</div>
+    </div>
+  </div>
+</form>
+<div class="consult-tip-wrap">
+  <div class="consult-tip">
+    <img src="../../assets/images/loading.gif" alt="" />
+    <img src="../../assets/images/loading.gif" alt="" />
+    <p id="result-tip"></p>
+  </div>
+</div>
+<script src="./static/config/index.js"></script>
+<script>
+  $('.consult-submit-btn').click(function () {
+    if ($('.consult-submit-btn').hasClass('btn-disabled')) return;
+    toggleBtn('addClass');
+    const phone = $('#consult-phone').val();
+    const email = $('#consult-email').val();
+    const type = $('#consult-select').val();
+    const memo = $('#consult-des').val();
+    $.ajax({
+      url: window.host,
+      data: { email, phone, type, memo },
+      success: function (data) {
+        if (data.status === 0) {
+          $('#result-tip').html('预约成功，我们将尽快与您联系！');
+          $('.consult-tip').addClass('sucess');
+        } else {
+          toggleBtn('removeClass');
+          $('#result-tip').html('提交出错，请稍后再试~');
+          $('.consult-tip').removeClass('sucess');
+        }
+        $('.consult-tip-wrap').fadeIn();
+        setTimeout(function () {
+          $('.consult-tip-wrap').fadeOut();
+          $('#consult-phone').val('');
+          $('#consult-email').val('');
+          $('#consult-des').val('');
+        }, 2000);
+      },
+      error: function (err) {
+        toggleBtn('removeClass');
+        $('#result-tip').html('提交出错，请稍后再试~');
+        $('.consult-tip-wrap').fadeIn();
+        setTimeout(function () {
+          $('.consult-tip-wrap').fadeOut();
+        }, 2000);
+      }
+    });
+  });
+
+  // 监听输入框
+  $('#consult-phone').blur(verify);
+  $('#consult-email').blur(verify);
+  const curPageName = $(document).attr('title');
+  console.log($('#consult-select').children()[0].value);
+  for (let i = 0; i < $('#consult-select').children().length; i++) {
+    const element = $('#consult-select').children()[i];
+    if (curPageName.includes(element.value)) $('#consult-select').val(element.value);
+  }
+  function verify() {
+    const phone = $('#consult-phone').val();
+    const isMobile = function (s) {
+      return /^0?(13[0-9]|15[012356789]|17[013678]|18[0-9]|14[57])[0-9]{8}$/.test(s);
+    };
+    if (!isMobile(phone)) {
+      $('.phone-error').show();
+      toggleBtn('addClass');
+      return false;
+    } else {
+      $('.phone-error').hide();
+    }
+    const email = $('#consult-email').val();
+    const isEmail = function (s) {
+      return /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/.test(s);
+    };
+    if (!isEmail(email)) {
+      $('.email-error').show();
+      toggleBtn('addClass');
+      return false;
+    } else {
+      $('.email-error').hide();
+    }
+    toggleBtn('removeClass');
+  }
+  function toggleBtn(type) {
+    $('.consult-submit-btn')[type]('btn-disabled');
+  }
+</script>

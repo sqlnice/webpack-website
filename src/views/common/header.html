@@ -1,0 +1,165 @@
+<a href="./" class="main-logo"></a>
+<span class="nav-expand"></span>
+<nav class="nav-xs">
+  <ul id="accordion">
+    <li class="nav-li">
+      <div class="nav-type">
+        基础产品
+        <span class="nav-arrow"></span>
+      </div>
+      <ul class="nav-group">
+        <li><a href="sest.html">产品一</a></li>
+        <li><a href="seimage.html">产品二</a></li>
+        <li><a href="semap.html">产品三</a></li>
+        <li><a href="sesuperscylla.html">产品四</a></li>
+      </ul>
+    </li>
+    <li class="nav-li">
+      <div class="nav-type">
+        应用产品
+        <span class="nav-arrow"></span>
+      </div>
+      <ul class="nav-group">
+        <li><a href="application.html#spacedata">应用产品一</a></li>
+        <li><a href="application.html#image">应用产品二</a></li>
+        <li><a href="application.html#track">应用产品三</a></li>
+        <li><a href="application.html#autolink">应用产品四</a></li>
+        <li><a href="application.html#3d">应用产品五</a></li>
+      </ul>
+    </li>
+    <li class="nav-li">
+      <a class="nav-type" href="about.html">关于</a>
+    </li>
+    <li class="nav-li">
+      <div class="nav-wechat">
+        <img class="nav-wechat-code" src="../../assets/images/placeholder.gif" alt="" />
+        <p class="nav-wechat-name">微信公众号</p>
+      </div>
+    </li>
+  </ul>
+</nav>
+<nav class="nav-sm">
+  <div class="nav-type">
+    <span>基础产品</span>
+    <div class="nav-type-list-wrap none">
+      <div class="nav-type-list">
+        <ul>
+          <li><a href="sest.html">产品一</a></li>
+          <li><a href="seimage.html">产品二</a></li>
+          <li><a href="semap.html">产品三</a></li>
+          <li><a href="sesuperscylla.html">产品四</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="nav-type">
+    <span><a href="application.html">应用产品</a></span>
+    <div class="nav-type-list-wrap none">
+      <div class="nav-type-list">
+        <ul>
+          <li><a href="application.html#spacedata">应用产品一</a></li>
+          <li><a href="application.html#image">应用产品二</a></li>
+          <li><a href="application.html#track">应用产品三</a></li>
+          <li><a href="application.html#autolink">应用产品四</a></li>
+          <li><a href="application.html#3d">应用产品五</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="nav-type">
+    <span><a href="technique-center.html">技术中心</a></span>
+    <div class="nav-type-list-wrap none">
+      <div class="nav-type-list technology-nav-type-list">
+        <ul>
+          <p><a href="technique-center.html#docments">技术文件</a></p>
+          <li><a href="technique-center.html#sest">**产品一</a></li>
+          <li><a href="technique-center.html#sesuperscylla">**产品四</a></li>
+        </ul>
+        <ul>
+          <p><a href="technique-center.html#test">性能测试中心</a></p>
+          <p><a href="technique-center.html#question">常见问答</a></p>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="nav-type">
+    <span><a href="about.html">关于</a></span>
+  </div>
+</nav>
+<script>
+  /*
+   * @description 路由跳转
+   */
+  function route(htmlName, target) {
+    // 移动端-产品应用页面点击之后关闭导航(锚点导航会触发滚动事件，使布局上移)
+    if ($(window).width() <= 768 && window.location.href.indexOf('application') >= 1) {
+      $('header').removeClass('nav-expand-close');
+      $('body').css('overflow', 'auto');
+    }
+    if (!htmlName) return;
+    if (target === undefined) target = false;
+    if (target) {
+      window.open(htmlName);
+    } else {
+      window.location.href = htmlName;
+    }
+  }
+  /*
+   * @description 锚点跳转
+   */
+  function anchor(id) {
+    $('html ,body').animate({ scrollTop: $(id).offset().top }, 200);
+  }
+  // 移动端点击展开导航
+  $('.nav-expand').on('click', switchNav);
+  function switchNav() {
+    $('header').toggleClass('nav-expand-close');
+    if ($('header').hasClass('nav-expand-close')) {
+      $('body').css('overflow', 'hidden');
+    } else {
+      $('body').css('overflow', 'auto');
+    }
+  }
+  // 非移动端导航
+  $('.nav-sm')
+    .find('.nav-type')
+    .hover(function (e) {
+      $(this).children('.nav-type-list-wrap').stop().toggle();
+    });
+  // 手风琴导航
+  function Accordion(el) {
+    this.el = el || {};
+    this.types = this.el.find('.nav-type');
+    this.types.on('click', function (e) {
+      const curli = $(e.currentTarget).parent();
+      curli.toggleClass('nav-li-active');
+      curli.find('ul').toggle(200);
+    });
+  }
+  Accordion($('#accordion'));
+
+  // 监听上下滚动时给header添加白色背景
+  let sign = 0;
+  function onScroll() {
+    var oScrollTop = $(window).scrollTop();
+    // 隐藏header
+    if (oScrollTop > sign) {
+      sign = oScrollTop;
+      if (!$('body').hasClass('scrollDown') && sign > 10) $('body').addClass('scrollDown');
+      if ($('body').hasClass('scrollUp')) $('body').removeClass('scrollUp');
+    }
+    // 显示header
+    if (oScrollTop < sign) {
+      sign = oScrollTop;
+      if ($('body').hasClass('scrollDown')) $('body').removeClass('scrollDown');
+      if (!$('body').hasClass('scrollUp') && sign > 10) $('body').addClass('scrollUp');
+      if (oScrollTop >= ($('.default-banner').height() || $(window).height())) {
+        // 在banner外白色bg
+        if (!$('body').hasClass('white-bg') && sign > 10) $('body').addClass('white-bg');
+      } else {
+        if ($('body').hasClass('white-bg') && sign > 10) $('body').removeClass('white-bg');
+      }
+    }
+  }
+  $(window).scroll(onScroll);
+</script>

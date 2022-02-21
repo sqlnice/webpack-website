@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>技术中心</title>
+  <meta name="keywords" content="**,技术,技术中心" />
+  <meta name="description" content="**技术中心" />
+  <link rel="stylesheet" href="./static/lib/bootstrap/bootstrap.min.css" />
+</head>
+
+<body>
+  <header id="header"></header>
+  <main class="main">
+    <article class="container default-banner technique-banner lazy-bgimage" data-phonesrc="../assets/images/loading.gif" data-src="../assets/images/loading.gif">
+      <div class="row">
+        <div class="col-xs-10 col-xs-offset-1 col-sm-6 technique-banner-describle">
+          <p>技术中心</p>
+          <a class="default-blue-btn" href="">申请试用</a>
+        </div>
+      </div>
+    </article>
+    <article class="technique-container bgF5F5F7">
+      <div class="catalog-wrap">
+        <ul id="catalog" class="catalog">
+          <li class="catalog-nav-li">
+            <div class="catalog-nav-type" onclick="anchor('#docments')">技术文件</div>
+          </li>
+          <li class="catalog-nav-li">
+            <div class="catalog-nav-type" onclick="anchor('#test')">性能测试中心</div>
+          </li>
+          <li class="catalog-nav-li">
+            <div class="catalog-nav-type" onclick="anchor('#question')">常见问答</div>
+          </li>
+        </ul>
+      </div>
+      <div class="content-wrap">
+        <div id="docments" class="wrap">
+          <p class="main-title">技术文件</p>
+          <ul>
+            <li id="sest">
+              <p class="sub-title">**平台</p>
+              <p class="download">
+                <a href="./static/file/testFile.pdf" target="_blank">产品白皮书</a><span></span>
+              </p>
+            </li>
+
+            <li id="sesuperscylla">
+              <p class="sub-title">**数据库</p>
+              <p class="download">
+                <a href="./static/file/testFile.pdf" target="_blank">产品白皮书</a><span></span>
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div id="test" class="wrap">
+          <div>
+            <p class="main-title">软件性能测试数据中心</p>
+            <p class="sub-title">标题</p>
+            <img src="../assets/images/loading.gif" class="test-img" alt="" />
+            <p class="test-title">测试内容：</p>
+            <p class="test-content">内容</p>
+            <p class="test-title">测试环境：</p>
+            <p class="test-content">结论</p>
+            <p class="remark">备注</p>
+          </div>
+          <div class="more-test" style="display: none">
+            <div>
+              <p class="sub-title">标题</p>
+              <img src="../assets/images/loading.gif" class="test-img" alt="" />
+              <p class="test-title">测试内容：</p>
+              <p class="test-content">内容</p>
+              <p class="test-title">测试结论：</p>
+              <p class="test-content">
+                结论
+              </p>
+              <p class="remark">备注</p>
+            </div>
+          </div>
+          <div class="more-btn">更多详细数据 +</div>
+        </div>
+        <div id="question" class="wrap">
+          <p class="main-title">常见问答</p>
+        </div>
+      </div>
+    </article>
+  </main>
+  <footer id="footer"></footer>
+  <script src="./static/lib/jquery.min.js"></script>
+</body>
+
+</html>

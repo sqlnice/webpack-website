@@ -1,0 +1,115 @@
+<nav class="footer-nav-xs">
+  <ul id="footer-accordion">
+    <li class="footer-nav-li">
+      <div class="footer-nav-type">
+        基础产品
+        <span class="footer-nav-arrow"></span>
+      </div>
+      <ul class="footer-nav-group">
+        <li><a href="sest.html">产品一</a></li>
+        <li><a href="seimage.html">产品二</a></li>
+        <li><a href="semap.html">产品三</a></li>
+        <li><a href="sesuperscylla.html">产品四</a></li>
+      </ul>
+    </li>
+    <li class="footer-nav-li">
+      <div class="footer-nav-type">
+        应用产品
+        <span class="footer-nav-arrow"></span>
+      </div>
+      <ul class="footer-nav-group">
+        <li><a href="application.html#spacedata">应用产品一</a></li>
+        <li><a href="application.html#image">应用产品二</a></li>
+        <li><a href="application.html#track">应用产品三</a></li>
+        <li><a href="application.html#autolink">应用产品四</a></li>
+        <li><a href="application.html#3d">应用产品五</a></li>
+      </ul>
+    </li>
+    <li class="footer-nav-li">
+      <div class="footer-nav-type"><a href="about.html">关于**</a></div>
+    </li>
+    <li class="footer-nav-li footer-contact">
+      <div class="footer-nav-wechat">
+        <img class="footer-nav-wechat-code" src="../../assets/images/placeholder.gif" alt="" />
+        <p class="footer-nav-wechat-name">微信公众号</p>
+      </div>
+    </li>
+    <li class="footer-nav-li footer-copyright">
+      <div class="copyright">
+        <p>
+          苏ICP备14020788号
+          <br />
+          Copyright © 2021 苏州**图形软件科技发展有限公司
+        </p>
+      </div>
+    </li>
+  </ul>
+</nav>
+<div class="footer-nav-sm">
+  <div class="flex-between">
+    <div class="footer-nav-sm-contact">
+      <div class="weixin-icon"></div>
+      <div class="weibo-icon">
+        <a href="" target="target"></a>
+      </div>
+      <div class="zhihu-icon">
+        <a href="" target="target"></a>
+      </div>
+    </div>
+    <nav>
+      <div class="footer-nav-type">
+        <span>基础产品</span>
+        <div class="footer-nav-type-list">
+          <ul>
+            <li><a href="sest.html">产品一</a></li>
+            <li><a href="seimage.html">产品二</a></li>
+            <li><a href="semap.html">产品三</a></li>
+            <li><a href="sesuperscylla.html">产品四</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-nav-type">
+        <a style="cursor: pointer" href="application.html">应用产品</a>
+        <div class="footer-nav-type-list">
+          <ul>
+            <li><a href="application.html#spacedata">应用产品一</a></li>
+            <li><a href="application.html#image">应用产品二</a></li>
+            <li><a href="application.html#track">应用产品三</a></li>
+            <li><a href="application.html#autolink">应用产品四</a></li>
+            <li><a href="application.html#3d">应用产品五</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-nav-type">
+        <span><a href="about.html">关于**</a></span>
+        <div class="footer-nav-type-list">
+          <ul>
+            <li><a href="about.html#coretec">核心技术</a></li>
+            <li><a href="news.html">**动态</a></li>
+            <li><a href="technique-center.html#docments">技术文档</a></li>
+            <li><a href="about.html#contact">联系我们</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div class="flex-between">
+    <a class="footer-nav-sm-logo main-logo" href="./"></a>
+    <span class="footer-nav-sm-copyright">苏ICP备*****号 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Copyright © 2021
+      **有限公司 版权所有</span>
+  </div>
+</div>
+
+<script>
+  // 移动端手风琴导航
+  function FooterAccordion(el) {
+    this.el = el || {};
+    this.types = this.el.find('.footer-nav-type');
+    this.types.on('click', function (e) {
+      const curli = $(e.currentTarget).parent();
+      curli.toggleClass('footer-nav-li-active');
+      curli.find('ul').toggle(200);
+    });
+  }
+  FooterAccordion($('#footer-accordion'));
+</script>
